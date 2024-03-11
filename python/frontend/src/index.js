@@ -5,6 +5,7 @@ import BotMessage from "./components/BotMessage";
 import UserMessage from "./components/UserMessage";
 import Messages from "./components/Messages";
 import Input from "./components/Input";
+import FloatingForm from "./components/FloatingForm";
 
 import API from "./ChatbotAPI";
 
@@ -13,6 +14,7 @@ import Header from "./components/Header";
 
 function Chatbot() {
   const [messages, setMessages] = useState([]);
+  const [logoUrl, setLogoUrl] = useState("");
 
   useEffect(() => {
     async function loadWelcomeMessage() {
@@ -25,6 +27,10 @@ function Chatbot() {
     }
     loadWelcomeMessage();
   }, []);
+
+  const updateLogoUrl = (value) => {
+    setLogoUrl(value);
+  }
 
   const send = async text => {
     const newMessages = messages.concat(
@@ -39,9 +45,11 @@ function Chatbot() {
 
   return (
     <div className="chatbot">
-      <Header />
+      <Header logoUrl={logoUrl}/>
       <Messages messages={messages} />
       <Input onSend={send} />
+
+      <FloatingForm updateLogoUrl={updateLogoUrl} />
     </div>
   );
 }
