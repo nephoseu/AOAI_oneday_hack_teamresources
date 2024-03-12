@@ -7,6 +7,7 @@ Backend application is Python FastAPI app which is served using uvicorn.
 ```bash
 cd api
 python -m venv venv # optional but best practice
+pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
