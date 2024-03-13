@@ -5,12 +5,15 @@ import API from '../ChatbotAPI'; // Import the API module
 
 const FloatingForm = ({ updateLogoUrl }) => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    yearOfBirth: '',
-    city: '',
-    country: '',
-    favoriteBand: '',
+    face: '',
+    eyebrows: '',
+    eye_color: '',
+    facial_features: '',
+    hair: '',
+    clothes: '',
+    height: '',
+    weight: '',
+    other_apparel: '',
   });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -58,67 +61,97 @@ const FloatingForm = ({ updateLogoUrl }) => {
                 </div>
 
                 <form onSubmit={handleSubmit} className="floating-form">
-                    <label for="firstName">
-                    First Name:
+                    <label for="face">
+                    Face:
                     </label>
                     <input
                         type="text"
-                        name="firstName"
-                        value={formData.firstName}
+                        name="face"
+                        value={formData.face}
                         onChange={handleChange}
                     />
                     <br />
 
                     <label>
-                    Last Name:
+                    Eye Brows:
                     <input
                         type="text"
-                        name="lastName"
-                        value={formData.lastName}
+                        name="eyebrows"
+                        value={formData.eyebrows}
                         onChange={handleChange}
                     />
                     </label>
 
                     <label>
-                    Year of Birth:
+                    Eye Color:
                     <input
                         type="text"
-                        name="yearOfBirth"
-                        value={formData.yearOfBirth}
+                        name="eye_color"
+                        value={formData.eye_color}
                         onChange={handleChange}
                     />
                     </label>
 
                     <label>
-                    City:
+                    Facial Features:
                     <input
                         type="text"
-                        name="city"
-                        value={formData.city}
+                        name="facial_features"
+                        value={formData.facial_features}
                         onChange={handleChange}
                     />
                     </label>
 
                     <label>
-                    Country:
+                    Hair:
                     <input
                         type="text"
-                        name="country"
-                        value={formData.country}
+                        name="hair"
+                        value={formData.hair}
                         onChange={handleChange}
                     />
                     </label>
 
                     <label>
-                    Favorite Band:
+                    Clothes:
                     <input
                         type="text"
-                        name="favoriteBand"
-                        value={formData.favoriteBand}
+                        name="clothes"
+                        value={formData.clothes}
                         onChange={handleChange}
                     />
                     </label>
 
+                    <label>
+                    Height:
+                    <input
+                        type="text"
+                        name="height"
+                        value={formData.height}
+                        onChange={handleChange}
+                    />
+                    </label>
+
+                    <label>
+                    Weight:
+                    <input
+                        type="text"
+                        name="weight"
+                        value={formData.weight}
+                        onChange={handleChange}
+                    />
+                    </label>
+
+                    <label>
+                    Other Apparel:
+                    <input
+                        type="text"
+                        name="other_apparel"
+                        value={formData.other_apparel}
+                        onChange={handleChange}
+                    />
+                    </label>
+                    
                     <button type="submit">Submit</button>
                 </form>
             </div>
