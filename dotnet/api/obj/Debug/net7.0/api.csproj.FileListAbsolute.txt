@@ -32,3 +32,4 @@
 /Users/totipu/Repos/openai/one-day-hack/react-chatbot-ui/dotnet/api/obj/Debug/net7.0/api.genruntimeconfig.cache
 /Users/totipu/Repos/openai/one-day-hack/react-chatbot-ui/dotnet/api/obj/Debug/net7.0/ref/api.dll
 /Users/totipu/Repos/openai/one-day-hack/react-chatbot-ui/dotnet/api/bin/Debug/net7.0/public/asset-manifest.json
+/Users/totipu/Repos/openai/one-day-hack/react-chatbot-ui/dotnet/api/bin/Debug/net7.0/Newtonsoft.Json.dll

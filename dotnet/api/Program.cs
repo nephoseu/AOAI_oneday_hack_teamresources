@@ -1,4 +1,11 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.Extensions.FileProviders;
+
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    Args = args,
+    // Look for static files in "public"
+    WebRootPath = "public"
+});
 
 // Add services to the container.
 
@@ -16,7 +23,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseDefaultFiles();
 // app.UseHttpsRedirection();
+app.UseStaticFiles();
 
 app.UseAuthorization();
 

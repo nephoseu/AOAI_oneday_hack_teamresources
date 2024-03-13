@@ -1,5 +1,7 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Metadata.Ecma335;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace api.Controllers;
 
@@ -19,19 +21,39 @@ public class APIController : ControllerBase
         _logger = logger;
     }
 
+    // a POST method to receive a chat message and return a response on the route /chat
     [HttpPost("chat")]
-    public dynamic Post()
+    public dynamic Chat()
     {
-        // return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        // {
-        //     Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-        //     TemperatureC = Random.Shared.Next(-20, 55),
-        //     Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        // })
-        // .ToArray();
-        return new { message = "Hello, World!"};
+        var body = new StreamReader(Request.Body).ReadToEndAsync().Result;
+        var content = JsonConvert.DeserializeObject<dynamic>(body);
+
+        if (content == null) 
+            return new { message = "Invalid request" };
+
+        ////////////////////////////
+        /// Add OpenAI code here ///
+        ////////////////////////////
+
+        return new { message = "Your message: " + content.message };
+        
     }
 
-    // a POST method to receive a chat message and return a response on the route /api/chat
+    [HttpPost("generateImage")]
+    public dynamic GenerateImage()
+    {
+        var body = new StreamReader(Request.Body).ReadToEndAsync().Result;
+        var content = JsonConvert.DeserializeObject<dynamic>(body);
+
+        if (content == null) 
+            return new { message = "Invalid request" };
+
+        ////////////////////////////
+        /// Add OpenAI code here ///
+        ////////////////////////////
+        
+        return new { url = "https://via.placeholder.com/100" };
+        
+    }
     
 }
