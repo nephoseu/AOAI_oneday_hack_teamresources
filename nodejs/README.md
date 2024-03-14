@@ -1,14 +1,11 @@
-# Azure OpenAI One-day Hack Sample Application (Python)
+# Azure OpenAI One-day Hack Sample Application (node.js)
 
 ## Running the application
 
-Backend application is Python FastAPI app which is served using uvicorn.
+Backend application is nodejs Express app.
 
 ```bash
-cd api
-python -m venv venv # optional but best practice
-pip install -r requirements.txt
-uvicorn main:app --reload
+npm start
 ```
 
 ## Rebuilding frontend
